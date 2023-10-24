@@ -6,7 +6,10 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h6>Users</h6>
+                    <div class="d-flex align-items-center">
+                        <h6 class="mb-0">User Management</h6>
+                        <a class="btn btn-primary btn-sm ms-auto" href="{{ route('user-management.add') }}">Add</a>
+                    </div>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
@@ -48,9 +51,13 @@
                                     </td>
                                     <td class="align-middle text-end">
                                         <div class="d-flex px-3 py-1 justify-content-center align-items-center">
-                                            <a class="text-sm font-weight-bold mb-0 cursor-pointer">Edit</a>
-                                            <a class="text-sm font-weight-bold mb-0 ps-2 cursor-pointer">Detail</a>
-                                            <a class="text-sm font-weight-bold mb-0 ps-2 cursor-pointer">Delete</a>
+                                            <a class="text-sm font-weight-bold mb-0 cursor-pointer" href="{{ route('user-management.edit', $users->id) }}">Edit</a>
+                                            <a class="text-sm font-weight-bold mb-0 ps-2 cursor-pointer" href="{{ route('user-management.detail', $users->id) }}">Detail</a>
+                                            <form action="{{ route('user-management.destroy', $users->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button class="ms-4 btn btn-datatable btn-icon btn-transparent-dark" type="submit">Delete</button>
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>
