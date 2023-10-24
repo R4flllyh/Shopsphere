@@ -17,10 +17,19 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('users')->insert([
             'username' => 'admin',
+            'role' => 'admin',
             'firstname' => 'Admin',
             'lastname' => 'Admin',
             'email' => 'admin@argon.com',
-            'password' => bcrypt('12345')
+            'password' => bcrypt('secret')
+        ]);
+        DB::table('users')->insert([
+            'username' => 'user',
+            'role' => 'user',
+            'firstname' => 'User 1',
+            'lastname' => 'User',
+            'email' => 'user@argon.com',
+            'password' => bcrypt('secret')
         ]);
     }
 }
