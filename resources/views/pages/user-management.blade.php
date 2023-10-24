@@ -14,8 +14,8 @@
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Role
-                                    </th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Role</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Create Date</th>
@@ -38,6 +38,9 @@
                                         </div>
                                     </td>
                                     <td>
+                                        <p class="text-sm font-weight-bold mb-0">{{ $users->email }}</p>
+                                    </td>
+                                    <td>
                                         <p class="text-sm font-weight-bold mb-0">{{ $users->role }}</p>
                                     </td>
                                     <td class="align-middle text-center text-sm">
@@ -45,9 +48,9 @@
                                     </td>
                                     <td class="align-middle text-end">
                                         <div class="d-flex px-3 py-1 justify-content-center align-items-center">
-                                            <a class="text-sm font-weight-bold mb-0">Edit</a>
-                                            <a class="text-sm font-weight-bold mb-0 ps-2">Detail</a>
-                                            <a class="text-sm font-weight-bold mb-0 ps-2">Delete</a>
+                                            <a class="text-sm font-weight-bold mb-0 cursor-pointer">Edit</a>
+                                            <a class="text-sm font-weight-bold mb-0 ps-2 cursor-pointer">Detail</a>
+                                            <a class="text-sm font-weight-bold mb-0 ps-2 cursor-pointer">Delete</a>
                                         </div>
                                     </td>
                                 </tr>
