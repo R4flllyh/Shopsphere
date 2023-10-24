@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -31,7 +32,7 @@ class HomeController extends Controller
     public function dashboardadm() {
         $u = User::count();
         $p = product::count();
-        // $c = Category::count();
-        return view('pages.dashboardadm', compact('u','p'));
+        $c = Category::count();
+        return view('pages.dashboardadm', compact('u','p', 'c'));
     }
 }
