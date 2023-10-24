@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\RegisterController;
@@ -26,19 +22,17 @@ use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;
 use App\Http\Controllers\UserManagementController;
 
-Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
-	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
-	Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('register.perform');
-	Route::get('/login', [LoginController::class, 'show'])->middleware('guest')->name('login');
-	Route::post('/login', [LoginController::class, 'login'])->middleware('guest')->name('login.perform');
-	Route::get('/reset-password', [ResetPassword::class, 'show'])->middleware('guest')->name('reset-password');
-	Route::post('/reset-password', [ResetPassword::class, 'send'])->middleware('guest')->name('reset.perform');
-	Route::get('/change-password', [ChangePassword::class, 'show'])->middleware('guest')->name('change-password');
-	Route::post('/change-password', [ChangePassword::class, 'update'])->middleware('guest')->name('change.perform');
-	Route::get('/dashboard', [HomeController::class, 'index'])->name('home')->middleware('auth');
-    Route::get('/product', [PageController::class, 'product'])->name('product-index');
-    Route::get('/category', [PageController::class, 'category'])->name('category-index');
-Route::group(['middleware' => 'auth'], function () {
+Route::get('/', [LoginController::class, 'show'])->middleware('guest')->name('login');
+Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
+Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('register.perform');
+Route::post('/login', [LoginController::class, 'login'])->middleware('guest')->name('login.perform');
+Route::get('/reset-password', [ResetPassword::class, 'show'])->middleware('guest')->name('reset-password');
+Route::post('/reset-password', [ResetPassword::class, 'send'])->middleware('guest')->name('reset.perform');
+Route::get('/change-password', [ChangePassword::class, 'show'])->middleware('guest')->name('change-password');
+Route::post('/change-password', [ChangePassword::class, 'update'])->middleware('guest')->name('change.perform');
+
+Route::group(['auth', 'role:admin'], function () {
+	Route::get('/dashboard-admin', [HomeController::class, 'dashboardadm'])->name('dashboardadm');
 	Route::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');
 	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');
 	Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
@@ -47,6 +41,19 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/sign-in-static', [PageController::class, 'signin'])->name('sign-in-static');
 	Route::get('/sign-up-static', [PageController::class, 'signup'])->name('sign-up-static');
 	Route::get('/user-management', [UserManagementController::class, 'index'])->name('user-management');
+	Route::get('/user-management/add', [UserManagementController::class, 'add'])->name('user-management.add');
+	Route::post('/user-management/post', [UserManagementController::class, 'update'])->name('user-management.update');
+	Route::get('/user-management/{id}/edit', [UserManagementController::class, 'edit'])->name('user-management.edit');
+	Route::get('/user-management/{id}/detail', [UserManagementController::class, 'detail'])->name('user-management.detail');
+	Route::delete('/user-management/{id}', [UserManagementController::class, 'destroy'])->name('user-management.destroy');
+	Route::get('/product', [PageController::class, 'product'])->name('product-index');
+    Route::get('/category', [PageController::class, 'category'])->name('category-index');
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+});
+
+Route::group(['auth', 'role:user'], function() {
+	Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
+	Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
+	Route::post('/profile', [UserProfileController::class, 'update'])->name('profile.update');
 });
