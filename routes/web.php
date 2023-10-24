@@ -24,6 +24,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\ResetPassword;
 use App\Http\Controllers\ChangePassword;
+use App\Http\Controllers\ProductController;
+
 use App\Http\Controllers\UserManagementController;
 
 Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
@@ -40,6 +42,7 @@ Route::get('/', function () {return redirect('/dashboard');})->middleware('auth'
     Route::get('/category', [PageController::class, 'category'])->name('category-index');
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');
+	Route::get('/product/add', [ProductController::class, 'add'])->name('add');
 	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');
 	Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
 	Route::post('/profile', [UserProfileController::class, 'update'])->name('profile.update');

@@ -12,7 +12,7 @@
                                 <h5 class="mb-0">🔥 Product</h5>
                             </div>
                             <div class="col-6 text-end">
-                                <a href="#" class="btn bg-gradient-secondary px-3 mb-0">
+                                <a href="{{route('add')}}" class="btn bg-gradient-secondary px-3 mb-0">
                                     <i class="fas fa-plus me-2"></i> Add Product
                                 </a>
                             </div>
