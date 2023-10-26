@@ -12,7 +12,7 @@
                                 <h5 class="mb-0">🔥 Category</h5>
                             </div>
                             <div class="col-6 text-end">
-                                <a href="#" class="btn bg-gradient-secondary px-3 mb-0">
+                                <a href="{{route('category-add')}}" class="btn bg-gradient-secondary px-3 mb-0">
                                     <i class="fas fa-plus me-2"></i> Add Category
                                 </a>
                             </div>

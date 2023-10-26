@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,7 @@ Route::group(['auth', 'role:admin'], function () {
 	Route::get('/dashboard-admin', [HomeController::class, 'dashboardadm'])->name('dashboardadm');
 	Route::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');
 	Route::get('/product/add', [ProductController::class, 'add'])->name('add');
+    Route::get('/category/add', [CategoryController::class, 'add']) ->name('category-add');
 	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');
 	Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
 	Route::post('/profile', [UserProfileController::class, 'update'])->name('profile.update');
