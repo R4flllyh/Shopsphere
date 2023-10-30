@@ -51,7 +51,11 @@ Route::group(['auth', 'role:admin'], function () {
 	Route::get('/user-management/{id}/edit', [UserManagementController::class, 'edit'])->name('user-management.edit');
 	Route::get('/user-management/{id}/detail', [UserManagementController::class, 'detail'])->name('user-management.detail');
 	Route::delete('/user-management/{id}', [UserManagementController::class, 'destroy'])->name('user-management.destroy');
+
+	//Product
 	Route::get('/product', [PageController::class, 'product'])->name('product-index');
+
+	//Category
     Route::get('/category', [PageController::class, 'category'])->name('category-index');
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');

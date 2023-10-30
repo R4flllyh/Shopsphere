@@ -21,24 +21,16 @@
                     <form action="#" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group d-flex justify-content-between align-items-center py-2">
-                            <div class="col-4 align-top">
-                                <img id="imagePreview" src="{{ asset('img/team-1.jpg') }}" class="rounded shadow-lg p-2 " style="aspect-ratio: 1/1; width: 100%; object-fit: cover;" alt="hero">
-                                <div class="form-group pt-4">
-                                    <label class="font-weight-bold fs-6" for="project_image">Add Category image</label>
-                                    <input class="form-control py-1" type="file" name="project_image">
-                                    <p class="description py-1">Give your Category a image (optional)</p>
-                                </div>
-                            </div>
-                            <div class="col-7">
+                            <div class="col-12">
                                 <div class="form-group">
-                                    <label class="font-weight-bold fs-6" for="product_name">Category name</label>
-                                    <input type="text" name="project_name" class="form-control" placeholder="Your Project">
-                                    <p class="description py-1">The title must contain a maximum of 50 characters</p>
+                                    <label class="font-weight-bold fs-6" for="category">Category name</label>
+                                    <input type="text" name="category" class="form-control" placeholder="Category">
+                                    <p class="description py-1">The title must contain a minimum of 3 characters</p>
                                 </div>
                                 <div class="form-group">
-                                    <label class="font-weight-bold fs-6" for="description">Description and details</label>
-                                    <textarea name="project_description" class="form-control" placeholder="Description and detail"></textarea>
-                                    <p class="description py-1">Give your product a good description so everyone know what's it for</p>
+                                    <label class="font-weight-bold fs-6" for="desc_category">Description and details</label>
+                                    <textarea name="desc_category" class="form-control" placeholder="Description and detail"></textarea>
+                                    <p class="description py-1">Give detail about this category</p>
                                 </div>
                             </div>
                             {{-- <div class="col-3">
