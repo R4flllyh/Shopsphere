@@ -20,18 +20,24 @@
                     </div>
                 </div>
             </div>
+            @foreach ($c as $item)    
             <div class="col-12 mt-4">
                 <div class="card d-flex" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Category title</h5>
-                        <p class="card-text">70rb Product</p>
+                        <h5 class="card-title">{{ $item->category }}</h5>
                         <div class="d-flex justify-content-between gap-2">
-                            <a href="#" class="btn btn-primary mb-0 w-100">Go somewhere</a>
-                            <a href="#" class="btn btn-danger mb-0"><i class="fi fi-rr-trash"></i></a>
+                            <a href="{{ route('category-detail', $item->id) }}" class="btn btn-primary mb-0 w-100">Detail</a>
+                            <a href="{{ route('category-edit', $item->id) }}" class="btn btn-info mb-0"><i class="fi fi-rr-settings"></i></a>
+                            <form action="{{ route('category-destroy', $item->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger mb-0" type="submit"><i class="fi fi-rr-trash"></i></button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
         @include('layouts.footers.auth.footer')
     </div>

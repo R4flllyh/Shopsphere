@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -51,6 +52,7 @@ class PageController extends Controller
     }
 
     public function category() {
-        return view("pages.category");
+        $c = Category::all();
+        return view("pages.category", compact('c'));
     }
 }

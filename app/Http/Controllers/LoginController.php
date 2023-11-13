@@ -26,10 +26,15 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role' => 'admin'])) {
             $request->session()->regenerate();
 
-            return redirect()->intended('dashboard');
+            return redirect()->intended('dashboard-admin');
+        }
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'role' => 'user'])) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('home');
         }
 
         return back()->withErrors([
@@ -44,6 +49,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/');
     }
 }

@@ -21,6 +21,22 @@ class CategoryController extends Controller
             'category' => $request->get('category'),
             'desc_category' => $request->get('desc_category')
         ]);
-        return back()->with('succes', 'Category Berhasi Di tambahkan');
+        return redirect()->route('category-index')->with('succes', 'Category Berhasi Di tambahkan');
+    }
+
+    public function detail($id){
+        $c = Category::find($id);
+        return view('pages.category.detail', compact('c'));
+    }
+
+    public function edit($id){
+        $category = Category::find($id);
+        return view('pages.category.edit', compact('c'));
+    }
+
+    public function destroy($id){
+        $category = Category::find($id);
+        $category->delete();
+        return redirect()->route('category-index')->with('succes', 'Berhasil Menghapus Category');
     }
 }
