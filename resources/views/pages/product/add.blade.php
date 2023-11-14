@@ -29,7 +29,7 @@
                                     <p class="description py-1">Give your product a image (optional)</p>
                                 </div>
                             </div>
-                            <input type="text" value="{{ Auth()->user()->id }}" hidden>
+                            <input type="text" value="{{ Auth()->user()->id }}" name="user_id" hidden>
                             <div class="col-7">
                                 <div class="form-group">
                                     <label class="font-weight-bold fs-6" for="name">Product name</label>
@@ -46,7 +46,7 @@
                                     <select class="form-control" name="category_id" placeholder="Pilih">
                                         <option selected>Choose</option>
                                         @foreach ($c as $item)    
-                                        <option value="{{ $item->id }}">{{ $item->category }}</option>
+                                        <option value="{{ $item->id }}" name="category_id">{{ $item->category }}</option>
                                         @endforeach
                                     </select>
                                     <p class="description py-1">Give your product a category so everyone know What category does the product fall into</p>

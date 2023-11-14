@@ -14,7 +14,17 @@ class ProductController extends Controller
 
     public function store (){
         $attribute = request()->validate([
-            ''
+            'user_id' => 'required',
+            'category_id' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+            'photo' => 'required|mimes',
+            'harga' => 'required',
+            'diskon' => 'required',
+            'stock' => 'required',
         ]);
+
+        Category::create($attribute);
+        return redirect('/product')->with('succes', 'Berhasil menambahkan produk');
     }
 }
