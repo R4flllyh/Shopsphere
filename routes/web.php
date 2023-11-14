@@ -26,7 +26,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserManagementController;
 
 Route::get('/', [LoginController::class, 'show'])->middleware('guest')->name('login');
-Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest')->name('register.perform');
 Route::post('/login', [LoginController::class, 'login'])->middleware('guest')->name('login.perform');
@@ -55,6 +55,7 @@ Route::group(['auth', 'role:admin'], function () {
 
 	//Product
 	Route::get('/product', [PageController::class, 'product'])->name('product-index');
+	Route::get('/product/add', [ProductController::class, 'add'])->name('product-add');
 
 	//Category
     Route::get('/category', [PageController::class, 'category'])->name('category-index');
@@ -68,7 +69,7 @@ Route::group(['auth', 'role:admin'], function () {
 });
 
 Route::group(['auth', 'role:user'], function() {
-	Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
+	Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 	Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
 	Route::post('/profile', [UserProfileController::class, 'update'])->name('profile.update');
 });

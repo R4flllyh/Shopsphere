@@ -13,7 +13,9 @@ class product extends Model
         'name',
         'description',
         'photo',
-        'harga'
+        'harga',
+        'stock',
+        'diskon'
     ];
 
     public function user(){
