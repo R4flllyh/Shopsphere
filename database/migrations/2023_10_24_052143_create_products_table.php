@@ -21,6 +21,8 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('photo');
             $table->integer('harga');
+            $table->integer('diskon');
+            $table->integer('stock');
             $table->timestamps();
         });
     }
