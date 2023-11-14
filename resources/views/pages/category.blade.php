@@ -28,9 +28,9 @@
                         <p class="card-description mb-4">
                             {{$item -> desc_category}}
                         </p>
-                        <p class="card-description mb-4">
+                        {{-- <p class="card-description mb-4">
                             4 Product
-                          </p>
+                          </p> --}}
                         <div class="d-flex justify-content-between gap-2">
                             <a href="{{ route('category-edit', $item->id) }}" class="btn btn-info mb-0"><i class="fi fi-rr-settings"></i></a>
                             <form action="{{ route('category-destroy', $item->id) }}" method="POST">

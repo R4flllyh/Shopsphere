@@ -30,8 +30,18 @@ class CategoryController extends Controller
     }
 
     public function edit($id){
-        $category = Category::find($id);
+        $c = Category::find($id);
         return view('pages.category.edit', compact('c'));
+    }
+
+    public function update($id, Request $request) {
+        $attributes = $request->validate([
+            'category' => ['min:3'],
+            'desc_category' => ['max:100'],
+        ]);
+
+        $category = Category::find($id);
+        $category->update($attributes);
     }
 
     public function destroy($id){
