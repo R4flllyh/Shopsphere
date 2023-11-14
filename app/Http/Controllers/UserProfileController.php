@@ -39,6 +39,24 @@ class UserProfileController extends Controller
             'postal' => $request->get('postal'),
             'about' => $request->get('about')
         ]);
-        return back()->with('succes', 'Profile succesfully updated');
+        return back()->with('success', 'Profile succesfully updated');
+    }
+
+    public function Contactupdate(Request $request)
+    {
+        $attributes = $request->validate([
+            'address' => ['max:100'],
+            'city' => ['max:100'],
+            'country' => ['max:100'],
+            'postal' => ['max:100'],
+        ]);
+
+        auth()->user()->update([
+            'address' => $request->get('address'),
+            'city' => $request->get('city'),
+            'country' => $request->get('country'),
+            'postal' => $request->get('postal'),
+        ]);
+        return back()->with('success', 'Profile succesfully updated');
     }
 }

@@ -20,6 +20,24 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-4 col-md-6 me-sm-0 mx-auto mt-3">
+                <div class="nav-wrapper position-relative end-0">
+                    <ul class="nav nav-pills nav-fill p-1" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link mb-0 px-0 py-1 active d-flex align-items-center justify-content-center "
+                                data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
+                                <span class="ms-2">All Product</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center "
+                                data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
+                                <span class="ms-2">My Products</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <div class="col-12 mt-4">
                 <div class="col-3">
                     <div class="card">

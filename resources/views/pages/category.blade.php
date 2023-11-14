@@ -20,13 +20,18 @@
                     </div>
                 </div>
             </div>
-            @foreach ($c as $item)    
+            @forelse ($c as $item)
             <div class="col-12 mt-4">
                 <div class="card d-flex" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">{{ $item->category }}</h5>
+                        <p class="card-description mb-4">
+                            {{$item -> desc_category}}
+                        </p>
+                        <p class="card-description mb-4">
+                            4 Product
+                          </p>
                         <div class="d-flex justify-content-between gap-2">
-                            <a href="{{ route('category-detail', $item->id) }}" class="btn btn-primary mb-0 w-100">Detail</a>
                             <a href="{{ route('category-edit', $item->id) }}" class="btn btn-info mb-0"><i class="fi fi-rr-settings"></i></a>
                             <form action="{{ route('category-destroy', $item->id) }}" method="POST">
                                 @csrf
@@ -37,7 +42,24 @@
                     </div>
                 </div>
             </div>
-            @endforeach
+            @empty
+                    <div class="col-md-12 mt-4">
+                        <div class="d-flex justify-content-center">
+                            <div class="col-12">
+                                <div class="card text-center">
+                                    <div class="card-header">
+                                        <img src="/img/no-found-illustration.png" width="30%">
+                                    </div>
+                                    <div class="card-body">
+                                    <h5 class="card-title">No Current Category Found 😔</h5>
+                                    <p class="card-text">Let's start adding your first category for your own product</p>
+                                    <a href="{{route('category-add')}}" class="btn btn-primary">Start adding your category</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            @endforelse
         </div>
         @include('layouts.footers.auth.footer')
     </div>
