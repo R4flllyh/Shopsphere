@@ -18,14 +18,14 @@
         <div class="col-12 mt-4">
             <div class="card">
                 <div class="card-body">
-                    <form action="#" method="POST" enctype="multipart/form-data">
+                    <form action="" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group d-flex justify-content-between py-2">
                             <div class="col-4 align-top">
                                 <img id="imagePreview" src="{{ asset('img/team-1.jpg') }}" class="rounded shadow-lg p-2 " style="aspect-ratio: 1/1; width: 100%; object-fit: cover;" alt="hero">
                                 <div class="form-group pt-4">
                                     <label class="font-weight-bold fs-6" for="photo">Add Product image</label>
-                                    <input class="form-control py-1" type="file" name="photo">
+                                    <input class="form-control py-1" type="file" name="photo" id="file-input" accept="image/*">
                                     <p class="description py-1">Give your product a image (optional)</p>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
                                     <label class="font-weight-bold fs-6" for="category_id">Category</label>
                                     <select class="form-control" name="category_id" placeholder="Pilih">
                                         <option selected>Choose</option>
-                                        @foreach ($c as $item)    
+                                        @foreach ($c as $item)
                                         <option value="{{ $item->id }}" name="category_id">{{ $item->category }}</option>
                                         @endforeach
                                     </select>
@@ -92,6 +92,30 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const fileInput = document.getElementById('file-input');
+            const previewImage = document.getElementById('imagePreview');
+
+            fileInput.addEventListener('change', function () {
+                const file = fileInput.files[0];
+
+                if (file) {
+                    // Use FileReader to read file and set image source
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        previewImage.src = e.target.result;
+                    };
+
+                    reader.readAsDataURL(file);
+                } else {
+                    // If no file is selected, clear the preview
+                    previewImage.src = '';
+                }
+            });
+        });
+    </script>
     @include('layouts.footers.auth.footer')
 </div>
 

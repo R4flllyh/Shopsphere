@@ -12,19 +12,26 @@ class ProductController extends Controller
         return view('pages.product.add', compact('c'));
     }
 
-    public function store (){
-        $attribute = request()->validate([
-            'user_id' => 'required',
-            'category_id' => 'required',
-            'name' => 'required',
-            'description' => 'required',
-            'photo' => 'required|mimes',
-            'harga' => 'required',
-            'diskon' => 'required',
-            'stock' => 'required',
-        ]);
+    public function store()
+{
+    $attributes = request()->validate([
+        'user_id' => 'required',
+        'category_id' => 'required',
+        'name' => 'required',
+        'description' => 'required',
+        'photo' => 'required|image|mimes:jpeg,png,jpg,gif', // Adjust allowed file types as needed
+        'harga' => 'required',
+        'diskon' => 'required',
+        'stock' => 'required',
+    ]);
 
-        Category::create($attribute);
-        return redirect('/product')->with('succes', 'Berhasil menambahkan produk');
+    // Handle file upload
+    if (request()->hasFile('photo')) {
+        $attributes['photo'] = request()->file('photo')->store('product_images', 'public');
     }
+
+    Category::create($attributes);
+
+    return redirect('/product')->with('success', 'Berhasil menambahkan produk');
+}
 }
