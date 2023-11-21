@@ -58,6 +58,7 @@ Route::group(['auth', 'role:admin'], function () {
 	//Product
 	Route::get('/product', [PageController::class, 'product'])->name('product-index');
 	Route::get('/product/add', [ProductController::class, 'add'])->name('product-add');
+	Route::post('/product/post', [ProductController::class, 'store'])->name('product-store');
 
 	//Category
     Route::get('/category', [PageController::class, 'category'])->name('category-index');

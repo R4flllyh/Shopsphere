@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -12,8 +13,7 @@ class ProductController extends Controller
         return view('pages.product.add', compact('c'));
     }
 
-    public function store()
-{
+    public function store(){
     $attributes = request()->validate([
         'user_id' => 'required',
         'category_id' => 'required',
@@ -33,5 +33,10 @@ class ProductController extends Controller
     Category::create($attributes);
 
     return redirect('/product')->with('success', 'Berhasil menambahkan produk');
-}
+    }
+
+    public function edit($id) {
+        $p = product::find($id);
+        return view();
+    }
 }
