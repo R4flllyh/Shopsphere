@@ -12,7 +12,7 @@
                                 <h5 class="mb-0">🔥 Product</h5>
                             </div>
                             <div class="col-6 text-end">
-                                <a href="{{route('product-add')}}" class="btn bg-gradient-secondary px-3 mb-0">
+                                <a href="{{ route('product-add') }}" class="btn bg-gradient-secondary px-3 mb-0">
                                     <i class="fas fa-plus me-2"></i> Add Product
                                 </a>
                             </div>
@@ -25,13 +25,13 @@
                     <ul class="nav nav-pills nav-fill p-1" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link mb-0 px-0 py-1 active d-flex align-items-center justify-content-center "
-                                data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
+                                data-bs-toggle="tab" href="#all-products" role="tab" aria-selected="true">
                                 <span class="ms-2">All Product</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center "
-                                data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
+                                data-bs-toggle="tab" href="#my-products" role="tab" aria-selected="false">
                                 <span class="ms-2">My Products</span>
                             </a>
                         </li>
@@ -39,39 +39,90 @@
                 </div>
             </div>
             <div class="col-12 mt-4">
-                <div class="col-3">
-                    <div class="card">
-                        <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
-                          <a href="javascript:;" class="d-block">
-                            <img src="./assets/img/kit/pro/anastasia.jpg" class="img-fluid border-radius-lg">
-                          </a>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="all-products">
+                        <div class="col-12 mt-4">
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+                                      <a href="javascript:;" class="d-block">
+                                        <img src="./assets/img/kit/pro/anastasia.jpg" class="img-fluid border-radius-lg">
+                                      </a>
+                                    </div>
+                                    <div class="card-body pt-2">
+                                      <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Category</span>
+                                      <a href="javascript:;" class="card-title h5 d-block text-darker">
+                                        All Product Title
+                                      </a>
+                                      <p class="card-description mb-4">
+                                        Use border utilities to quickly style the border
+                                      </p>
+                                      <div class="author align-items-center justify-content-between gap-2">
+                                        <a href="#" class="btn btn-primary mb-0 w-100">See Details</a>
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary mb-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fi fi-rr-menu-burger text-center"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                              <li><a class="dropdown-item" href="#">Edit</a></li>
+                                              <li><a class="dropdown-item" href="#">Delete</a></li>
+                                            </ul>
+                                          </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
                         </div>
-
-                        <div class="card-body pt-2">
-                          <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Category</span>
-                          <a href="javascript:;" class="card-title h5 d-block text-darker">
-                            Product Title
-                          </a>
-                          <p class="card-description mb-4">
-                            Use border utilities to quickly style the border
-                          </p>
-                          <div class="author align-items-center justify-content-between gap-2">
-                            <a href="#" class="btn btn-primary mb-0 w-100">See Details</a>
-                            <div class="dropdown">
-                                <button class="btn btn-secondary mb-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fi fi-rr-menu-burger text-center"></i>
-                                </button>
-                                <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="#">Edit</a></li>
-                                  <li><a class="dropdown-item" href="#">Delete</a></li>
-                                </ul>
-                              </div>
-                          </div>
+                        <!-- Your content for the "All Products" tab goes here -->
+                        <!-- For example, you can loop through products and display them -->
+                        <!-- Make sure to adjust this part based on your actual data structure -->
+                    </div>
+                    <div class="tab-pane fade" id="my-products">
+                        <div class="col-12 mt-4">
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+                                      <a href="javascript:;" class="d-block">
+                                        <img src="./assets/img/kit/pro/anastasia.jpg" class="img-fluid border-radius-lg">
+                                      </a>
+                                    </div>
+                                    <div class="card-body pt-2">
+                                      <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold my-2">Category</span>
+                                      <a href="javascript:;" class="card-title h5 d-block text-darker">
+                                        My Product Title
+                                      </a>
+                                      <p class="card-description mb-4">
+                                        Use border utilities to quickly style the border
+                                      </p>
+                                      <div class="author align-items-center justify-content-between gap-2">
+                                        <a href="#" class="btn btn-primary mb-0 w-100">See Details</a>
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary mb-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="fi fi-rr-menu-burger text-center"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                              <li><a class="dropdown-item" href="#">Edit</a></li>
+                                              <li><a class="dropdown-item" href="#">Delete</a></li>
+                                            </ul>
+                                          </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
                         </div>
-                      </div>
+                        <!-- Your content for the "My Products" tab goes here -->
+                        <!-- For example, you can loop through user-specific products and display them -->
+                        <!-- Make sure to adjust this part based on your actual data structure -->
+                    </div>
                 </div>
             </div>
         </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // No need to show the default tab programmatically, let Bootstrap handle it
+            });
+        </script>
         @include('layouts.footers.auth.footer')
     </div>
 @endsection
