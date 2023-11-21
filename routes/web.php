@@ -49,8 +49,9 @@ Route::group(['auth', 'role:admin'], function () {
 	Route::get('/sign-up-static', [PageController::class, 'signup'])->name('sign-up-static');
 	Route::get('/user-management', [UserManagementController::class, 'index'])->name('user-management');
 	Route::get('/user-management/add', [UserManagementController::class, 'add'])->name('user-management.add');
-	Route::post('/user-management/post', [UserManagementController::class, 'update'])->name('user-management.update');
+	Route::post('/user-management/post', [UserManagementController::class, 'store'])->name('user-management.store');
 	Route::get('/user-management/{id}/edit', [UserManagementController::class, 'edit'])->name('user-management.edit');
+	Route::post('/user-management/update', [UserManagementController::class, 'update'])->name('user-management.update');
 	Route::get('/user-management/{id}/detail', [UserManagementController::class, 'detail'])->name('user-management.detail');
 	Route::delete('/user-management/{id}', [UserManagementController::class, 'destroy'])->name('user-management.destroy');
 

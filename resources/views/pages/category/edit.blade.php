@@ -24,12 +24,12 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label class="font-weight-bold fs-6" for="category">Category name</label>
-                                    <input type="text" name="category" class="form-control" placeholder="Category">
+                                    <input type="text" name="category" class="form-control" value="{{ $c->category }}">
                                     <p class="description py-1">The title must contain a minimum of 3 characters</p>
                                 </div>
                                 <div class="form-group">
                                     <label class="font-weight-bold fs-6" for="desc_category">Description and details</label>
-                                    <textarea name="desc_category" class="form-control" placeholder="Description and detail"></textarea>
+                                    <textarea name="desc_category" class="form-control" placeholder="{{ $c->desc_category }}" value="{{ $c->desc_category }}"></textarea>
                                     <p class="description py-1">Give detail about this category</p>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                             </div> --}}
                         </div>
                         <div class="d-flex justify-content-between py-5">
-                            <a class="btn btn-danger" href="{{Route('dashboard-admin')}}" style="width: 48%"><i class="fi fi-rr-undo me-2"></i> Back</a>
+                            <a class="btn btn-danger" href="{{Route('category-index')}}" style="width: 48%"><i class="fi fi-rr-undo me-2"></i> Back</a>
                             <button type="submit" class="btn btn-primary" style="width: 48%"><i class="fi fi-rr-add-folder me-2"></i> Submit</button>
                         </div>
                     </form>

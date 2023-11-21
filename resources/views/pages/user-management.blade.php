@@ -51,8 +51,8 @@
                                     </td>
                                     <td class="align-middle text-end">
                                         <div class="d-flex px-3 py-1 justify-content-center align-items-center">
-                                            <a class="text-sm font-weight-bold mb-0 cursor-pointer" href="{{ route('user-management.edit', $users->id) }}">Edit</a>
-                                            <a class="text-sm font-weight-bold mb-0 ps-2 cursor-pointer" href="{{ route('user-management.detail', $users->id) }}">Detail</a>
+                                            <a class="ms-4 btn btn-datatable btn-icon btn-transparent-dark" href="{{ route('user-management.edit', $users->id) }}">Edit</a>
+                                            <a class="ms-4 btn btn-datatable btn-icon btn-transparent-dark" href="{{ route('user-management.detail', $users->id) }}">Detail</a>
                                             <form action="{{ route('user-management.destroy', $users->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')

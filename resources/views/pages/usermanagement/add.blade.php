@@ -3,7 +3,7 @@
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Add User'])
 <div class="card">
-    <form role="form" method="POST" action={{ route('user-management.update') }} enctype="multipart/form-data">
+    <form role="form" method="POST" action={{ route('user-management.store') }} enctype="multipart/form-data">
         @csrf
         <div class="card-header pb-0">
             <div class="d-flex align-items-center">
